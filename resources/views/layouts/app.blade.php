@@ -22,12 +22,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 </head>
-<body>
+<body class="bg-dark">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-lg">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <img src="{{ asset('img/tire.png') }}" alt="" width="30" height="24">
+                <a class="navbar-brand text-warning" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" href="{{ url('/') }}">
+                    OTOMOTIF
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,6 +56,14 @@
                                 </li>
                             @endif
                         @else
+                        @if(Auth::user()->role_name == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('index.kendaraan') }}">{{ __('Kendaraan') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('index.laporan') }}">{{ __('Laporan') }}</a>
+                        </li>
+                        @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -83,4 +92,15 @@
         </main>
     </div>
 </body>
+
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <img src="{{ asset('img/tire.png') }}" alt="" width="30" height="24">
+        </a>
+        <span class="text-muted">&copy; IQBAL HAMBALI</span>
+      </div>
+    </footer>
+  </div>
 </html>
