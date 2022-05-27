@@ -15,5 +15,10 @@ Instalasi Program:
 - Konfigurasi dengan database
 - Masukan Perintah "php artisan migrate"
 - Masukan Perintah "php artisan db:seed"
-- -Selesai
+- Selesai
 
+Akun Admin:
+- Email = admin@gmail.com
+- password = 12345678
+
+noted: untuk member/customer silahkan register
